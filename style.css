@@ -1,26 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
+   #card {
+  max-width: 90%;      /* se adapta al ancho de pantalla */
+  width: 800px;        /* tamaño máximo en pantallas grandes */
+  height: auto;        /* que se ajuste al contenido */
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centra perfecto */
+  display: flex;
+  flex-direction: column; /* en móvil se acomoda mejor */
+  visibility: hidden;
+  background: #fff;    /* opcional */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
-#card {
-   height:500px;
-   width:800px;
-   margin:5em auto;
-   position: fixed;
-  top: -15px;
-   left: 25%;
-   display:flex;
-   visibility:hidden;
-}
 #card h2 {
-   font-size:3em;
-   margin:0;
-   color:pink;
-   text-align: center;
+  font-size: 2em;
+  margin: 0.5em 0;
+  color: pink;
+  text-align: center;
 }
+
 #card p {
-   font-size: 1.5em;
-   text-align: justify;
-   padding-left: 30px; /* Espacio en blanco a la izquierda */
-   padding-right: 30px; /* Espacio en blanco a la derecha */
+  font-size: 1.2em;
+  text-align: justify;
+  padding: 0 20px;
 }
 
 /* Ajustes para celulares */
