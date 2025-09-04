@@ -1,43 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
+
 #card {
-   height:500px;
-   width:800px;
-   margin:5em auto;
-   position: fixed;
-  top: -15px;
-   left: 10%;
-   display:flex;
-   visibility:hidden;
+  width: 90%;          /* en móviles se adapta al ancho */
+  max-width: 800px;    /* en pantallas grandes no pasa de 800px */
+  height: auto;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
 }
+
 #card h2 {
-   font-size:3em;
-   margin:0;
-   color:pink;
-   text-align: center;
+  font-size: 2em;
+  margin: 0.5em 0;
+  color: pink;
+  text-align: center;
 }
+
 #card p {
-   font-size: 1.5em;
-   text-align: justify;
-   padding-left: 30px; /* Espacio en blanco a la izquierda */
-   padding-right: 30px; /* Espacio en blanco a la derecha */
+  font-size: 1.2em;
+  text-align: justify;
+  padding: 0 20px;
 }
 
 .side {
-   background:#eee;
-   height:550px;
-   width:400px;
-/*    border:1px solid red; */
-   padding:10px;
+  background: #eee;
+  height: auto;
+  flex: 1;
+  padding: 10px;
+  min-width: 0;
 }
 .side.one {
-   width:320px;
-   transform:skew(10deg,20deg);
-   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
+  transform: skew(10deg,20deg);
+  background: linear-gradient(90deg, #fff, #fff 40%, #ddd);
 }
 .side.two {
-   transform:skew(10deg,-15deg);
-   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+  transform: skew(10deg,-15deg);
+  background: linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+/* Ajustes móviles */
+@media (max-width: 600px) {
+  #card {
+    width: 95%;
+    height: auto;
+  }
+  #card h2 {
+    font-size: 1.5em;
+  }
+  #card p {
+    font-size: 1em;
+  }
 }
 
 body {
