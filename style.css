@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
-
-#card {
-  width: 90%;          /* siempre ocupa 90% del ancho disponible */
-  max-width: 800px;    /* nunca se pasa de 800px, ideal en pantallas grandes */
-  height: auto;
-  margin: auto;
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-wrap: wrap;
-  visibility: hidden;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
+#card {   width: 90%; /* siempre ocupa 90% del ancho disponible */   
+       max-width: 800px; /* nunca se pasa de 800px, ideal en pantallas grandes */   
+       height: auto;   
+       margin: auto;   
+       position: fixed;   
+       top: 50%;   
+       left: 50%;   
+       transform: translate(-50%, -50%);   
+       display: flex;   
+       flex-wrap: wrap;   
+       visibility: hidden;   
+       background: #fff;   
+       border-radius: 10px;  
+       box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+      }
 
 
 #card h2 {
