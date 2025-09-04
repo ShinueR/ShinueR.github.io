@@ -1,65 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
-
 #card {
-  width: 90%;                  /* ocupa hasta 90% del ancho disponible */
-  max-width: 800px;            /* nunca más grande que 800px */
-  height: auto;
-  margin: auto;
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;             /* permite que las "hojas" se acomoden */
-  visibility: hidden;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+   height:500px;
+   width:500px;
+   margin:5em auto;
+   position: fixed;
+  top: -15px;
+   left: 25%;
+   display:flex;
+   visibility:hidden;
 }
+#card h2 {
+   font-size:3em;
+   margin:0;
+   color:pink;
+   text-align: center;
+}
+#card p {
+   font-size: 1.5em;
+   text-align: justify;
+   padding-left: 30px; /* Espacio en blanco a la izquierda */
+   padding-right: 30px; /* Espacio en blanco a la derecha */
+}
+
 
 .side {
-  flex: 1 1 50%;               /* ocupa la mitad del ancho disponible */
-  min-width: 250px;            /* no se hace más pequeño que esto */
-  height: auto;
-  padding: 10px;
-  box-sizing: border-box;
+   background:#eee;
+   height:550px;
+   width:400px;
+/*    border:1px solid red; */
+   padding:10px;
 }
-
 .side.one {
-  background: linear-gradient(90deg, #fff, #fff 40%, #ddd);
+   width:320px;
+   transform:skew(10deg,20deg);
+   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
 }
-
 .side.two {
-  background: linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+   transform:skew(10deg,-15deg);
+   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
 }
-
-/* Texto interno */
-#card h2 {
-  font-size: clamp(1.5em, 4vw, 2.5em); /* escala según pantalla */
-  margin: 0.5em 0;
-  color: pink;
-  text-align: center;
-}
-
-#card p {
-  font-size: clamp(1em, 2.5vw, 1.3em);
-  text-align: justify;
-  padding: 0 15px;
-}
-
-/* Ajustes móviles: apilar lados */
-@media (max-width: 600px) {
-  #card {
-    flex-direction: column; /* cada lado uno debajo del otro */
-    width: 95%;
-    height: auto;
-  }
-  .side {
-    min-width: 100%;
-    transform: none;        /* quitamos deformaciones */
-  }
-}
-
 
 body {
    display: flex;
