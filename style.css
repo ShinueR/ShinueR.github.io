@@ -23,6 +23,19 @@
    padding-right: 30px; /* Espacio en blanco a la derecha */
 }
 
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+  #card {
+    width: 95%;
+    padding: 15px;
+  }
+  #card h2 {
+    font-size: 1.8em;
+  }
+  #card p {
+    font-size: 1em;
+  }
+}
 
 .side {
    background:#eee;
