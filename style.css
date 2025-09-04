@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 #card {
    height:500px;
-   width:500px;
+   width:800px;
    margin:5em auto;
    position: fixed;
   top: -15px;
-   left: 25%;
+   left: 8%;
    display:flex;
    visibility:hidden;
 }
