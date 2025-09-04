@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
-#card {   width: 90%; /* siempre ocupa 90% del ancho disponible */   
+#card {   
+       width: 90%; /* siempre ocupa 90% del ancho disponible */   
        max-width: 800px; /* nunca se pasa de 800px, ideal en pantallas grandes */   
        height: auto;   
        margin: auto;   
