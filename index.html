@@ -1,34 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para mi rata</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de la Alerta (Firestore)</title>
+    <style>
+        body { font-family: sans-serif; display: grid; place-content: center; min-height: 100vh; margin: 0; background-color: #f0f2f5; text-align: center; }
+        #alerta-box { padding: 40px 60px; border-radius: 12px; font-size: 5rem; font-weight: bold; color: white; transition: all 0.5s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .esperando { background-color: #6c757d; }
+        .si { background-color: #28a745; }
+        .no { background-color: #dc3545; }
+    </style>
 </head>
 <body>
 
-   
+    <h1>Estado Actual:</h1>
+    <div id="alerta-box" class="esperando">...</div>
 
-<div class="valentines-day">
-  <div class="envelope"></div>
-  <div class="heart"></div>
-  <div class="text"> PARA: <br> KAREN CITLALI HERNÁNDEZ HERRERA </div>
-  <div class="front"></div>
-</div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-<div id="card">
-  <div class="side one"></div>
-  <div class="side two">
-    <h2>Para la chica de ojos cool ♡</h2>
-    <p>Hulaaaaaaaw, primero que todo, !!!Buenos días estrellota¡¡¡</p>
-    <p>El día de hoy espero que tengas un maravilloso día, recuerda comer, poner atención, 
-      llévate suéter y no olvides tomar agüita. </p>
-    <p>No olvides lo increíble que sos y que tienes un novio que te ama mucho ♡</p>
-  </div>
-</div>
+    <script>
+        // --- 1. CONFIGURACIÓN DE FIREBASE ---
+        // ¡PEGA AQUÍ EL CÓDIGO firebaseConfig QUE COPIASTE!
+        const firebaseConfig = {
+            apiKey: "TU_API_KEY",
+            authDomain: "TU_PROYECTO.firebaseapp.com",
+            projectId: "TU_ID_DE_PROYECTO",
+            // ... resto de tus claves
+        };
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src="./script.js"></script>
+        // --- 2. INICIALIZAR Y CONECTAR A FIRESTORE ---
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(); // ¡Obtenemos la referencia a Firestore!
 
+        // Apuntamos a un "documento" específico dentro de una "colección".
+        // Imagina que 'alerta' es una carpeta y 'estado' es un archivo dentro.
+        const alertaDocRef = db.collection('alerta').doc('estado');
+
+        // --- 3. ESCUCHAR CAMBIOS EN EL DOCUMENTO ---
+        const alertaBox = document.getElementById('alerta-box');
+
+        // onSnapshot() se ejecuta CADA VEZ que el documento cambie.
+        alertaDocRef.onSnapshot((doc) => {
+            let valor = '...'; // Valor por defecto
+            
+            if (doc.exists) {
+                // Obtenemos el campo 'valor' del documento
+                valor = doc.data().valor; 
+                console.log("Nuevo dato recibido de Firestore:", valor);
+            } else {
+                console.log("El documento no existe todavía.");
+            }
+
+            alertaBox.classList.remove('si', 'no', 'esperando');
+
+            if (valor === 'SI') {
+                alertaBox.textContent = 'SI';
+                alertaBox.classList.add('si');
+            } else if (valor === 'NO') {
+                alertaBox.textContent = 'NO';
+                alertaBox.classList.add('no');
+            } else {
+                alertaBox.textContent = '...';
+                alertaBox.classList.add('esperando');
+            }
+        });
+    </script>
 </body>
 </html>
